@@ -1,0 +1,45 @@
+server:
+  port: 8080
+  tomcat:
+    max-connections: 20
+    threads:
+      max: 20
+      min-spare: 10
+    accept-count: 10
+
+spring:
+  datasource:
+    username: root
+    password: 50683201
+    url: jdbc:mysql://117.72.177.93:3306/sirmem?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat
+
+# 日志
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  config-location: classpath:/mybatis/config/mybatis-config.xml
+
+weixin:
+  config:
+    originalid: gh_4b2bffb975dc
+    token: b8b6
+    app-id: wx59bad08b713eb95d
+    app-secret: 283ea2cfdc93a868ed9f8dfc72916252
+    template_id: pWNblaY25emKdCN_01Lj2jYx5SKjKg50s72Oul7Nibw
